@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+.next/
+.astro/
+
+# Local environment files
+.env
+.env.local
+
+# System files
+.DS_Store
+
+# Logs
+*.log
+
