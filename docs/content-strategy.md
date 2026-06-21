@@ -2,11 +2,14 @@
 
 ## Content Principles
 
+- Keep the homepage positioning broad enough for both AI-related and general product roles.
+- Present AI as a working method and portfolio evidence, not as a narrow job title.
 - Be honest about the transition stage.
 - Show evidence instead of making broad claims.
 - Emphasize product thinking, not just tool usage.
 - Make resume and contact information easy to access.
 - Use personal elements only when they support the professional story.
+- Make content easy to localize into Chinese and English.
 
 ## Main Content Sections
 
@@ -17,14 +20,20 @@ Purpose: communicate who I am and what I am moving toward.
 Suggested message:
 
 ```text
-Product Manager transitioning into AI products.
+Product Manager with a design background.
 
-I bring design taste, user empathy, and C-end product experience into AI-assisted product building.
+I shape consumer experiences through product thinking, visual taste, and AI-assisted building.
+```
+
+Alternative:
+
+```text
+Product Manager with industrial design roots, C-end product experience, and a growing AI-assisted workflow.
 ```
 
 ### About
 
-Purpose: explain my background and transition logic.
+Purpose: explain my background and working style.
 
 Key points:
 
@@ -32,7 +41,7 @@ Key points:
 - UI design experience
 - C-end product management
 - payment and fund product experience
-- interest in AI products and faster prototyping
+- AI-assisted research, prototyping, writing, and web coding
 
 ### Resume
 
@@ -46,10 +55,11 @@ Needs:
 
 ### Works
 
-Purpose: provide proof of AI product thinking and execution.
+Purpose: provide proof of product thinking, AI-assisted execution, and web coding ability.
 
 First works:
 
+- Personal AI Portfolio
 - AI Fund Assistant
 - AI Product Teardown Library
 - AI Travel Planner
@@ -67,3 +77,12 @@ Travel and self-media can appear as:
 
 They should not dominate the homepage.
 
+### Language Strategy
+
+V1 can launch in one primary language, but all major content should be structured so a second language can be added later.
+
+Recommended approach:
+
+- Chinese content for warmer self-introduction and domestic job applications
+- English headings and selected labels for a more global, tech-forward feel
+- Later support a full `zh` and `en` switch

@@ -16,8 +16,19 @@
 - Add works section
 - Add contact and social links
 - Prepare responsive layout
+- Add personal portrait to the hero section
+- Reserve UI positions for theme switching and language switching
+- Structure copy so Chinese and English versions can be added cleanly
 
-## V0.3 - AI Fund Assistant
+## V0.3 - Design Foundation
+
+- Define responsive typography and spacing system
+- Define light and dark color tokens
+- Define reusable section, button, card, and media styles
+- Prepare motion-friendly component structure
+- Check mobile layout in key viewport widths
+
+## V0.4 - AI Fund Assistant
 
 - Write product brief
 - Define target user and problem
@@ -25,19 +36,26 @@
 - Create first web prototype
 - Add screenshots and case summary to the website
 
-## V0.4 - AI Product Teardown Library
+## V0.5 - AI Product Teardown Library
 
 - Create teardown template
 - Analyze 3 to 5 AI products
 - Document UX patterns, failure cases, and improvement ideas
 - Publish teardown section on the website
 
-## V0.5 - AI Travel Planner
+## V0.6 - AI Travel Planner
 
 - Write product brief
 - Define user scenarios
 - Create a lightweight interactive prototype
 - Use travel as a product context rather than the main visual theme
+
+## V0.7 - Optional Experience Upgrade
+
+- Implement dark mode if not shipped in MVP
+- Implement Chinese and English language switch if not shipped in MVP
+- Add subtle page transitions or section reveals
+- Add richer project detail pages
 
 ## V1.0 - Public Launch
 
@@ -47,5 +65,6 @@
 - Deploy the website
 - Bind custom domain
 - Review mobile experience
+- Review light and dark mode readiness
+- Review multilingual readiness
 - Prepare shareable portfolio URL for job applications
-
