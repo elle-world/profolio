@@ -103,12 +103,16 @@ h1, h2, h3, h4 { line-break: strict; text-wrap: balance; }
 .hero-copy { display: flex; align-self: stretch; max-width: 890px; flex-direction: column; padding-bottom: 24px; }
 .kicker { margin-bottom: 22px; color: var(--accent); font-size: 11px; font-weight: 800; line-height: 1.4; text-transform: uppercase; }
 h1 {
+  display: flex;
   max-width: 940px;
+  flex-direction: column;
+  gap: clamp(12px, 1.2vw, 18px);
   margin-bottom: 70px;
   font-size: clamp(50px, 6.4vw, 88px);
   font-weight: 650;
   line-height: 1;
 }
+.hero h1 span:first-child { font-size: 1.12em; }
 h2 { margin-bottom: 38px; font-size: clamp(36px, 4.6vw, 64px); font-weight: 620; line-height: 1.08; }
 h3 { margin-bottom: 26px; font-size: clamp(22px, 2.3vw, 32px); font-weight: 620; line-height: 1.18; }
 h4 { margin-bottom: 10px; font-size: 16px; font-weight: 620; line-height: 1.3; }
@@ -180,16 +184,14 @@ h4 { margin-bottom: 10px; font-size: 16px; font-weight: 620; line-height: 1.3; }
 .section-rail a.is-active .rail-dot { width: 28px; height: 3px; opacity: 1; background: var(--accent); }
 
 .perspective {
-  display: grid;
-  grid-template-columns: 80px minmax(130px, 0.25fr) minmax(0, 1.75fr);
-  gap: clamp(24px, 5vw, 76px);
+  display: flex;
+  justify-content: center;
   border-top: 1px solid var(--line);
   padding-top: clamp(100px, 11vw, 156px);
   padding-bottom: clamp(110px, 13vw, 186px);
 }
-.perspective-label { padding-top: 8px; }
-.perspective-copy { position: relative; padding: 12px 42px 42px; }
-.perspective-copy h2 { max-width: 1100px; margin: 0; font-size: clamp(25px, 2.3vw, 32px); font-weight: 410; line-height: 1.58; }
+.perspective-copy { position: relative; width: min(100%, 1180px); padding: 12px 62px 42px; text-align: center; }
+.perspective-copy h2 { max-width: 1100px; margin: 0 auto; font-size: clamp(25px, 2.3vw, 32px); font-weight: 410; line-height: 1.58; }
 .perspective-copy h2 span { display: block; white-space: nowrap; }
 .perspective-copy::before,
 .perspective-copy::after { position: absolute; color: var(--accent); font-family: Georgia, serif; font-size: 52px; font-weight: 400; line-height: 1; opacity: 0.52; }
@@ -242,7 +244,7 @@ h4 { margin-bottom: 10px; font-size: 16px; font-weight: 620; line-height: 1.3; }
 .journey-visual ol { position: relative; display: flex; flex: 1; flex-direction: column; justify-content: space-between; gap: 0; margin: 0; padding: 0; list-style: none; }
 .journey-visual ol::before { position: absolute; top: 30px; bottom: 30px; left: 20px; width: 1px; background: var(--line); content: ""; }
 .journey-visual li { position: relative; display: grid; grid-template-columns: 42px 1fr; column-gap: 22px; align-items: center; min-height: 68px; }
-.journey-visual li:not(:last-child)::after { position: absolute; bottom: -10px; left: 17px; width: 7px; height: 7px; border-right: 1px solid var(--soft); border-bottom: 1px solid var(--soft); content: ""; transform: rotate(45deg); }
+.journey-visual li:not(:last-child)::after { position: absolute; bottom: -10px; left: 17px; width: 7px; height: 7px; border-right: 1px solid var(--accent); border-bottom: 1px solid var(--accent); content: ""; transform: rotate(45deg); }
 .journey-visual li span { z-index: 1; display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid var(--accent); border-radius: 50%; color: var(--accent); background: var(--bg); font-size: 10px; }
 .journey-visual li strong { font-size: 17px; font-weight: 570; }
 .journey-visual li small { grid-column: 2; margin-top: -18px; color: var(--soft); font-size: 11px; }
@@ -293,8 +295,6 @@ h4 { margin-bottom: 10px; font-size: 16px; font-weight: 620; line-height: 1.3; }
 
 @media (max-width: 980px) {
   .hero { grid-template-columns: 1.1fr 0.7fr; min-height: auto; }
-  .perspective { grid-template-columns: 48px 1fr; }
-  .perspective-label, .perspective-copy { grid-column: 2; }
   .perspective-copy { padding-right: 32px; }
   .perspective-copy h2 { font-size: 27px; }
   .section-intro { grid-template-columns: 48px 1fr; }
@@ -330,9 +330,7 @@ h4 { margin-bottom: 10px; font-size: 16px; font-weight: 620; line-height: 1.3; }
   .hero-portrait { width: 100%; }
   .hero-portrait img { aspect-ratio: 0.83; object-position: 50% 31%; }
   .perspective, .education { grid-template-columns: 1fr; gap: 22px; padding-top: 88px; padding-bottom: 104px; }
-  .perspective .section-index, .education .section-index { margin-bottom: 26px; }
-  .perspective-label { padding-top: 0; }
-  .perspective-label, .perspective-copy { grid-column: 1; }
+  .education .section-index { margin-bottom: 26px; }
   .perspective-copy { padding: 16px 28px 38px; }
   .perspective-copy h2 { font-size: 24px; line-height: 1.55; }
   .perspective-copy h2 span { white-space: normal; }
