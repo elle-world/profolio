@@ -2,14 +2,13 @@
 
 This folder contains the personal portfolio website for `wutong.world`.
 
-## Planned Sections
+## Current Sections
 
 - Hero
-- About
-- Resume
-- Works
-- AI transition log
-- Personal context and creator links
+- Evidence and outcomes
+- Ant Group experience
+- Beyond work
+- Education
 - Contact
 
 ## Build Direction
@@ -25,7 +24,7 @@ Current V1 implementation:
 - resume PDF download
 - works section prepared for iterative expansion
 
-The static V1 is intentionally chosen to get `wutong.world` live quickly. The project requirements still reserve room for a later Next.js or React migration when the works section becomes more complex.
+The static V1 is intentionally chosen to get `wutong.world` live quickly. The project can migrate to React or Next.js when project detail pages or the planned Three.js room experience create a real need.
 
 ## Local Development
 

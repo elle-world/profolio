@@ -5,187 +5,321 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="吴桐的产品经理作品集。工业设计与 UI 设计背景，C 端产品经验，现关注用户体验、基金支付场景与 AI 辅助产品实践。"
+      content="吴桐的个人作品集。现任蚂蚁集团支付产品经理，主导支付宝智能体「阿宝」AI 转账能力 0→1，并拥有跨终端支付、体验治理与工业设计背景。"
     />
+    <meta name="color-scheme" content="light dark" />
     <title>吴桐 | 产品经理作品集</title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="site-shell" data-theme="dark">
+    <div class="site-shell" data-theme="light">
       <header class="site-header" aria-label="主导航">
-        <a class="brand-mark" href="#top" aria-label="返回首页"><span>吴桐</span></a>
+        <a class="wordmark" href="#top" aria-label="返回首页">WUTONG.WORLD</a>
         <nav class="nav-links" aria-label="主导航">
-          <a href="#profile">关于</a>
-          <a href="#experience">经历</a>
-          <a href="#works">作品</a>
-          <a href="#resume">简历</a>
+          <a href="#experience" data-i18n-en="Experience">经历</a>
+          <a href="#beyond" data-i18n-en="Beyond work">工作之外</a>
+          <a href="#contact" data-i18n-en="Contact me">联系我</a>
         </nav>
-        <button class="icon-button" type="button" data-theme-toggle aria-label="切换显示模式">◐</button>
+        <div class="header-controls">
+          <button class="text-button" type="button" data-language-toggle aria-label="切换到英文">EN</button>
+          <button class="icon-button" type="button" data-theme-toggle aria-label="切换到暗黑模式" title="切换显示模式">
+            <span aria-hidden="true">◐</span>
+          </button>
+        </div>
       </header>
 
-      <section class="hero" id="top">
-        <div class="hero-copy">
-          <p class="eyebrow">产品经理 / 设计背景 / C 端体验</p>
-          <h1>吴桐</h1>
-          <p class="hero-title">用设计审美、用户同理心和产品判断，做清晰、可信、可落地的用户体验。</p>
-          <p class="hero-lede">
-            我曾从工业设计和 UI 设计进入产品工作，目前在支付领域负责基金相关用户产品。这个网站会持续呈现我的产品经历、体验判断，以及我如何把 AI 作为研究、原型和表达工具融入工作流。
-          </p>
-          <div class="hero-actions">
-            <a class="primary-action" href="./resume/wutong-product-resume.pdf" download>下载简历</a>
-            <a class="secondary-action" href="#experience">查看经历</a>
-            <a class="secondary-action" href="#works">查看作品</a>
-          </div>
-        </div>
+      <nav class="section-rail" aria-label="页面目录" data-aria-en="Section navigation">
+        <a class="is-active" href="#perspective" data-section-link="perspective" aria-label="产品观" data-aria-en="Perspective">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-label" data-i18n-en="Perspective">产品观</span>
+        </a>
+        <a href="#experience" data-section-link="experience" aria-label="工作经历" data-aria-en="Experience">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-label" data-i18n-en="Experience">工作经历</span>
+        </a>
+        <a href="#beyond" data-section-link="beyond" aria-label="工作之外" data-aria-en="Beyond work">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-label" data-i18n-en="Beyond work">工作之外</span>
+        </a>
+        <a href="#education" data-section-link="education" aria-label="教育背景" data-aria-en="Education">
+          <span class="rail-dot" aria-hidden="true"></span>
+          <span class="rail-label" data-i18n-en="Education">教育背景</span>
+        </a>
+      </nav>
 
-        <div class="portrait-panel" aria-label="吴桐的个人照片">
-          <div class="portrait-frame">
+      <main>
+        <section class="hero" id="top">
+          <div class="hero-copy">
+            <h1 class="locked-heading" data-i18n-en="<span>Hi,</span><span>I'm Elle Wu.</span>">
+              <span>Hi，</span>
+              <span>我是吴桐</span>
+            </h1>
+            <p
+              class="hero-intro"
+              data-i18n-en="Currently a Product Manager at Ant Group, I led the 0-to-1 launch of AI-powered transfers in Alipay's Abao agent and work across transfer experience governance and cross-device payments. My industrial-design background shapes how I connect user insight, system constraints and product execution."
+            >
+              现任蚂蚁集团支付产品经理，0→1 主导支付宝智能体「阿宝」AI 转账能力，并负责转账体验治理与跨终端支付。工业设计背景让我习惯从用户感受出发，在系统约束、安全边界与产品体验之间找到可落地的方案。
+            </p>
+            <div class="hero-actions">
+              <a class="primary-link" href="#experience" data-i18n-en="View experience">查看代表经历</a>
+            </div>
+          </div>
+
+          <figure class="hero-portrait">
             <picture>
               <source media="(max-width: 720px)" srcset="./images/wutong-portrait-mobile.jpg" />
-              <img src="./images/wutong-portrait.png" alt="吴桐的个人照片" />
+              <img src="./images/wutong-portrait.png" alt="吴桐的个人照片" data-alt-en="Portrait of Elle Wu" />
             </picture>
+            <figcaption>
+              <span data-i18n-en="ELLE WU">吴桐</span>
+              <span data-i18n-en="SHANGHAI, CHINA">中国 · 上海</span>
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="perspective" id="perspective" aria-labelledby="perspective-title" data-observe-section>
+          <div class="section-index">01</div>
+          <div class="perspective-label">
+            <p class="kicker" data-i18n-en="CAREER DIRECTION">职业方向</p>
           </div>
-          <div class="signal-card">
-            <span>当前方向</span>
-            <strong>C 端产品 · 基金支付 · AI 辅助产品实践</strong>
+          <div class="perspective-copy">
+            <h2
+              id="perspective-title"
+              data-i18n-en="<span>I believe great products live where humanity, technology and aesthetics meet.</span><span>I enjoy turning complexity into simplicity, technology into experience, and ideas into reality.</span>"
+            >
+              <span>我认为好的产品站在人性、科技与审美的交汇。</span>
+              <span>我享受把复杂变成简单，把技术变成体验，把想法变成真实的过程。</span>
+            </h2>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="signal-strip" aria-label="个人背景概览">
-        <article>
-          <span>背景</span>
-          <strong>工业设计 / UI 设计</strong>
-        </article>
-        <article>
-          <span>角色</span>
-          <strong>C 端产品经理</strong>
-        </article>
-        <article>
-          <span>领域</span>
-          <strong>支付 / 基金用户产品</strong>
-        </article>
-        <article>
-          <span>补充能力</span>
-          <strong>AI 辅助研究与原型</strong>
-        </article>
-      </section>
+        <section class="experience" id="experience" aria-labelledby="experience-title" data-observe-section>
+          <div class="section-intro">
+            <div class="section-index">02</div>
+            <div>
+              <p class="kicker" data-i18n-en="EXPERIENCE · 2024.07—PRESENT">工作经历 · 2024.07—至今</p>
+              <h2 id="experience-title" class="locked-heading" data-i18n-en="Ant Group · Digital Payments">
+                <span>蚂蚁集团</span>
+                <span>数字支付事业群</span>
+              </h2>
+              <p
+                data-i18n-en="I joined Ant Group as a graduate hire. Over two years, I have worked across core payment and money products, including payment solutions, personal transfers and cashier experiences used at massive scale, while helping bring AI into real payment journeys."
+              >
+                校招加入蚂蚁，两年内先后负责支付与资金类核心产品，覆盖支付解决方案、个人转账、收银台等千万级产品建设，并推动 AI 在支付链路融合落地。
+              </p>
+            </div>
+          </div>
 
-      <section class="section-block" id="profile">
-        <div class="section-heading">
-          <p class="eyebrow">关于我</p>
-          <h2>我更关注普通用户如何理解复杂信息，并完成关键决策。</h2>
-        </div>
-        <div class="section-body">
-          <p>
-            设计背景让我对界面秩序、视觉层级和细节完成度有更高要求；C 端产品经历让我更重视真实用户的理解成本、行为路径和业务约束。基金和支付场景本身有较高的信息复杂度，也让我持续关注“如何把专业内容翻译成用户能理解、愿意行动、又不会被误导的体验”。
-          </p>
-          <div class="capability-grid">
-            <article class="capability-card">
-              <span>01</span>
-              <h3>用户同理心</h3>
-              <p>关注用户在复杂场景里的困惑、犹豫、风险感知和决策压力。</p>
+          <article class="case-row">
+            <div class="case-meta">
+              <span data-i18n-en="PROJECT 01">项目 01</span>
+              <p data-i18n-en="AI AGENT · JULY 2026 LAUNCH">AI 智能体 · 2026.07 全量上线</p>
+            </div>
+            <div class="case-copy">
+              <h3 data-i18n-en="Abao AI transfers · from natural language to a real payment result">阿宝 AI 转账 · 从自然语言到真实资金结果</h3>
+              <p
+                data-i18n-en="As the transfer scenario owner, I led the capability scope, end-to-end journey, customer interaction and transfer-domain capability design. Users can express a transfer in natural language, complete missing information, find and confirm a recipient, pay and receive feedback. I also defined risk and exception handling around the recipient, amount, user authorization and real transaction state."
+              >
+                作为转账场景负责人，我主导能力范围、端到端用户动线、对客交互与转账域能力设计。用户可以用自然语言完成信息补全、找人确认、支付和结果反馈；同时围绕收款人、金额、用户授权与真实交易状态设计风险及异常处理。
+              </p>
+              <div class="abao-visual" id="abao-visual" aria-label="阿宝 AI 转账交互与用户旅程" data-aria-en="Abao AI transfer interaction and user journey">
+                <div class="phone-stage">
+                  <p class="visual-label" data-i18n-en="CONVERSATIONAL INTERACTION">对话式交互</p>
+                  <div class="phone-mockup">
+                    <img src="./images/abao-transfer-conversation.png" alt="阿宝自然语言转账对话截图" data-alt-en="Abao conversational transfer flow" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+                <div class="journey-visual" id="transfer-journey">
+                  <p class="visual-label" data-i18n-en="SIMPLIFIED USER JOURNEY">简化用户旅程</p>
+                  <ol>
+                    <li><span>01</span><strong data-i18n-en="Express intent">说出需求</strong><small data-i18n-en="Natural language">自然语言</small></li>
+                    <li><span>02</span><strong data-i18n-en="Complete details">补全信息</strong><small data-i18n-en="Recipient · amount">收款人 · 金额</small></li>
+                    <li><span>03</span><strong data-i18n-en="Confirm recipient">确认收款人</strong><small data-i18n-en="Identity check">身份核验</small></li>
+                    <li><span>04</span><strong data-i18n-en="Confirm transfer">确认转账</strong><small data-i18n-en="Recipient · amount">收款人 · 金额</small></li>
+                    <li><span>05</span><strong data-i18n-en="Authorize payment">授权支付</strong><small data-i18n-en="Risk verification">安全验证</small></li>
+                    <li><span>06</span><strong data-i18n-en="Receive result">获得结果</strong><small data-i18n-en="True transaction state">真实资金状态</small></li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-row">
+            <div class="case-meta">
+              <span data-i18n-en="PROJECT 02">项目 02</span>
+              <p data-i18n-en="CROSS-DEVICE PAYMENTS · 2024.07—2025.04">跨终端支付 · 2024.07—2025.04</p>
+            </div>
+            <div class="case-copy">
+              <h3 data-i18n-en="Tap-to-Pay · rebuilding real payment tasks for new devices">碰一下支付 · 为新终端重构真实支付任务</h3>
+              <p
+                data-i18n-en="Led complex payment capability work across acquiring, cashier, payment decisioning, smart-device, identity and external-manufacturer teams. Shipped online and offline Watch Tap-to-Pay from scratch, supported Tap-to-Transfer between OPPO and Huawei HarmonyOS phones, and improved core payment latency and conversion loss."
+              >
+                牵头收单、收银、支付决策、智能终端、核身与外部厂商完成复杂交易能力建设，0→1 落地手表在线与离线「碰一下」支付，并支持 OPPO 与华为鸿蒙手机间的「碰一下」转账；同时持续治理核心支付链路的耗时与转化漏损。
+              </p>
+              <div class="case-outcomes payment-outcomes">
+                <div><strong data-i18n-en="100K+">10万+</strong><span data-i18n-en="daily Watch transactions">手表日交易笔数</span></div>
+                <div><strong>4.35→3.0s</strong><span data-i18n-en="member payment time">会员支付耗时</span></div>
+                <div><strong>3.5→2.4s</strong><span data-i18n-en="handheld-device payment time">手持设备支付耗时</span></div>
+                <div class="target"><strong>+1.3%</strong><span data-i18n-en="payment success rate">支付成功率</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-row">
+            <div class="case-meta">
+              <span data-i18n-en="PROJECT 03">项目 03</span>
+              <p data-i18n-en="EXPERIENCE GOVERNANCE · 2025.04—PRESENT">体验治理 · 2025.04—至今</p>
+            </div>
+            <div class="case-copy">
+              <h3 data-i18n-en="Transfer experience governance · from user friction to measurable recovery">转账体验治理 · 从用户受阻到可量化改善</h3>
+              <p
+                data-i18n-en="As the transfer product owner, I owned manual-support and journey-blockage metrics for a group-wide payment-experience program. I turned customer-service voice, user behavior and business rules into governable problem categories, then coordinated search, security, account and ledger teams to improve recovery paths and bring feedback forward."
+              >
+                作为转账产品负责人，承接集团级用户支付体验战役中的转账专项，对人工求助与链路受阻指标负责。我将客服原声、用户行为与业务规则转化为可治理的问题分类，并牵引搜索、安全、账户、账单等团队完善恢复路径与结果反馈。
+              </p>
+              <div class="case-outcomes">
+                <div><strong>36%</strong><span data-i18n-en="fewer wrong-recipient transfer issues">转错账问题量减少</span></div>
+                <div><strong>25%</strong><span data-i18n-en="drop in manual support per 10,000 transfers">每万笔人工求助量下降</span></div>
+                <div class="target"><strong>83%</strong><span data-i18n-en="reduction in blocked transfer attempts">链路受阻降幅</span></div>
+              </div>
+            </div>
+          </article>
+
+          <div class="internship-block">
+            <div class="internship-heading">
+              <p class="kicker" data-i18n-en="EARLIER EXPERIENCE">实习经历</p>
+              <h3 class="locked-heading" data-i18n-en="Product and design, viewed from both sides.">
+                <span>从设计到产品，</span>
+                <span>理解两种工作语言。</span>
+              </h3>
+            </div>
+            <div class="role-list">
+              <article>
+                <div><span>2023</span><h4 data-i18n-en="Ele.me · Merchant fulfillment experience design">饿了么 · 商家履约体验设计</h4></div>
+                <p data-i18n-en="Redesigned merchant delivery settings and abnormal-fulfillment experiences. Complaints fell 64%, response rate rose 10%, and order cancellations fell 8%.">
+                  重构商家配送设置与异常履约体验。客诉降低 64%，异常处理响应率提升 10%，订单取消率降低 8%。
+                </p>
+              </article>
+              <article>
+                <div><span>2022</span><h4 data-i18n-en="Feishu Meetings · Product management">飞书视频会议 · 产品经理</h4></div>
+                <p data-i18n-en="Shipped in-meeting control features and improved the hardware ecosystem page to shorten Rooms purchasing decisions.">
+                  推动会中管控功能上线，并优化官网硬件生态页面，缩短 Rooms 硬件采购决策路径。
+                </p>
+              </article>
+              <article>
+                <div><span>2020</span><h4 data-i18n-en="Dianping · Interaction design">大众点评 · 交互设计</h4></div>
+                <p data-i18n-en="Worked on feed content cards, an MCN creator-management platform and a content-safety review console.">
+                  参与首页瀑布流内容卡片、MCN 达人管理平台及内容安全审核中后台设计。
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="beyond" id="beyond" aria-labelledby="beyond-title" data-observe-section>
+          <div class="section-intro compact">
+            <div class="section-index">03</div>
+            <div>
+              <p class="kicker" data-i18n-en="BEYOND WORK">工作之外</p>
+              <h2 id="beyond-title" class="locked-heading" data-i18n-en="What I notice shapes what I make.">
+                <span>我如何观察，</span>
+                <span>也影响我如何创造。</span>
+              </h2>
+            </div>
+          </div>
+          <div class="beyond-list">
+            <article>
+              <span class="object-label" data-i18n-en="TRAVEL NOTES">旅行观察</span>
+              <h3 class="locked-heading" data-i18n-en="More than ten countries, and the details between destinations.">
+                <span>十几个国家，</span>
+                <span>以及目的地之间的细节。</span>
+              </h3>
+              <p
+                data-i18n-en="I record the unusual moments, practical experience and visual cues I encounter while traveling, and share travel experience through two personal media accounts. Traveling keeps sharpening how I observe people, environments and everyday decisions."
+              >
+                我记录旅行中的特别体验、实用经验和视觉线索，并通过两个自媒体账号持续输出旅行内容。旅行也不断训练我观察人、环境与日常选择的方式。
+              </p>
+              <div class="personal-metrics">
+                <div><strong data-i18n-en="10K+">1w+</strong><span data-i18n-en="followers">粉丝</span></div>
+                <div><strong data-i18n-en="56K">5.6w</strong><span data-i18n-en="likes">获赞</span></div>
+              </div>
             </article>
-            <article class="capability-card">
-              <span>02</span>
-              <h3>体验与审美</h3>
-              <p>从信息层级、界面节奏、视觉克制和细节一致性判断体验质量。</p>
+            <article>
+              <span class="object-label" data-i18n-en="CAMPUS PROJECTS">校园经历</span>
+              <h3 class="locked-heading" data-i18n-en="An admission letter and a community built from scratch.">
+                <span>一份录取通知书，</span>
+                <span>和一个从零成立的社团。</span>
+              </h3>
+              <p
+                data-i18n-en="I designed and delivered Shanghai Jiao Tong University's 2022 undergraduate admission letter. During my undergraduate years, I founded Zhejiang University's student beauty club from scratch and secured sponsorships from brands including Perfect Diary and Kaleidos."
+              >
+                负责上海交通大学 2022 年本科生录取通知书设计及落地；本科期间从 0 到 1 创立浙江大学学生美妆社，并获得完美日记、万花镜等品牌赞助。
+              </p>
+              <div class="personal-metrics">
+                <div><strong data-i18n-en="Approx. 3,900">约3900份</strong><span data-i18n-en="2022 undergraduate admission letters">2022 本科录取通知书</span></div>
+                <div><strong>0→1</strong><span data-i18n-en="ZJU beauty community">浙大美妆社</span></div>
+              </div>
             </article>
-            <article class="capability-card">
-              <span>03</span>
-              <h3>C 端产品落地</h3>
-              <p>在真实业务约束下推进需求拆解、方案设计、协作沟通和版本迭代。</p>
-            </article>
-            <article class="capability-card">
-              <span>04</span>
-              <h3>AI 辅助工作流</h3>
-              <p>使用 AI 辅助资料整理、竞品拆解、文案推敲、原型构思和网页实现。</p>
+            <article>
+              <span class="object-label" data-i18n-en="DESIGN ROOTS">设计背景</span>
+              <h3 class="locked-heading" data-i18n-en="From physical products to gamified design.">
+                <span>从实体产品</span>
+                <span>到游戏化设计</span>
+              </h3>
+              <p
+                data-i18n-en="Industrial design taught me to understand people through form, behavior and context. Earlier healthcare and game-design work continues to inform how I think about empathy, feedback and motivation."
+              >
+                工业设计训练让我从形态、行为与情境理解用户。医疗与游戏设计方向的探索，也持续影响我对同理心、反馈和用户动机的判断。
+              </p>
+              <div class="personal-metrics">
+                <div><strong>10+</strong><span data-i18n-en="competition awards">专业竞赛获奖</span></div>
+                <div><strong data-i18n-en="PROVINCIAL">省级</strong><span data-i18n-en="government scholarship">政府奖学金</span></div>
+              </div>
             </article>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section-block experience-section" id="experience">
-        <div class="section-heading">
-          <p class="eyebrow">经历摘要</p>
-          <h2>从设计到产品，我的优势在于把感受力变成结构化方案。</h2>
-        </div>
-        <div class="timeline">
-          <article>
-            <span>当前</span>
-            <h3>蚂蚁集团 · 支付产品经理</h3>
-            <p>负责「碰一下支付」体验优化及支付解决方案孵化、个人资金产品「转账」体验优化。曾围绕支付链路、设备支付、转账风险和用户动线做体验拆解与方案推进。</p>
-          </article>
-          <article>
-            <span>过往</span>
-            <h3>阿里巴巴本地生活 · 体验设计实习</h3>
-            <p>参与饿了么商家履约、配送设置和异常履约相关体验优化，关注商家侧信息层级、操作路径和异常处理效率。</p>
-          </article>
-          <article>
-            <span>教育</span>
-            <h3>上海交通大学 · 设计学院硕士</h3>
-            <p>国际工业设计工程专业，GPA 3.92/4.0，排名 2/39。本科就读浙江大学工业设计专业，并曾在荷兰埃因霍温理工大学设计学院交换。</p>
-          </article>
-          <article>
-            <span>补充经历</span>
-            <h3>飞书视频会议 / 美团内容生态</h3>
-            <p>曾参与飞书视频会议官网与硬件生态相关产品工作，以及大众点评内容卡片、MCN 管理平台等交互设计工作。</p>
-          </article>
-        </div>
-      </section>
+        <section class="education" id="education" aria-labelledby="education-title" data-observe-section>
+          <div class="section-index">04</div>
+          <div class="education-heading">
+            <p class="kicker" data-i18n-en="EDUCATION">教育背景</p>
+            <h2 id="education-title" class="locked-heading" data-i18n-en="User experience design, and a wider view.">
+              <span>用户体验设计，</span>
+              <span>与更广的视野。</span>
+            </h2>
+          </div>
+          <div class="education-list">
+            <article>
+              <span>2021—2024</span>
+              <div><h3 data-i18n-en="Shanghai Jiao Tong University">上海交通大学</h3><p data-i18n-en="M.Eng. in International Industrial Design · GPA 3.92/4.0 · 2/39">国际工业设计工程硕士 · GPA 3.92/4.0 · 2/39</p></div>
+            </article>
+            <article>
+              <span>2023</span>
+              <div><h3 data-i18n-en="Eindhoven University of Technology">荷兰埃因霍温理工大学</h3><p data-i18n-en="Exchange in Industrial Design">工业设计专业交换</p></div>
+            </article>
+            <article>
+              <span>2017—2021</span>
+              <div><h3 data-i18n-en="Zhejiang University">浙江大学</h3><p data-i18n-en="B.Eng. in Industrial Design · GPA 3.74/4.0 · 3/38">工业设计本科 · GPA 3.74/4.0 · 保研综排名 3/38</p></div>
+            </article>
+          </div>
+        </section>
 
-      <section class="section-block works-section" id="works">
-        <div class="section-heading">
-          <p class="eyebrow">作品与实验</p>
-          <h2>先用真实作品证明能力，再逐步加深案例厚度。</h2>
-          <p>以下内容会从轻量版本开始上线，后续补充产品文档、原型、截图和复盘。</p>
-        </div>
-        <div class="works-grid">
-          <article class="work-card">
-            <div class="work-index">01</div>
-            <span>已上线基础版</span>
-            <h3>个人产品作品集网站</h3>
-            <p>通过 AI 辅助完成定位梳理、内容结构、网页实现和部署准备。网站本身是第一个 Web coding 作品。</p>
-            <ul><li>个人定位</li><li>网页实现</li><li>AI 辅助工作流</li></ul>
-          </article>
-          <article class="work-card">
-            <div class="work-index">02</div>
-            <span>规划中</span>
-            <h3>AI 基金解释助手</h3>
-            <p>结合现有基金产品经验，探索如何用 AI 把基金波动、风险信息和复杂术语转译成普通用户能理解的表达。</p>
-            <ul><li>金融产品</li><li>AI 体验</li><li>用户教育</li></ul>
-          </article>
-          <article class="work-card">
-            <div class="work-index">03</div>
-            <span>规划中</span>
-            <h3>AI 产品体验拆解</h3>
-            <p>拆解 AI 产品的用户路径、输入输出、失败场景和信任机制，沉淀我对 AI 产品体验的判断。</p>
-            <ul><li>产品分析</li><li>体验拆解</li><li>AI 产品</li></ul>
-          </article>
-        </div>
-      </section>
+        <section class="contact" id="contact" aria-labelledby="contact-title">
+          <h2 id="contact-title" data-i18n-en="Let's start a conversation.">期待与你聊聊</h2>
+          <div class="contact-links">
+            <a href="mailto:2501576139@qq.com"><span data-i18n-en="EMAIL">邮箱</span><strong>2501576139@qq.com</strong></a>
+            <a href="tel:+8619906516328"><span data-i18n-en="PHONE">电话</span><strong>+86 199 0651 6328</strong></a>
+          </div>
+        </section>
+      </main>
 
-      <section class="resume-section" id="resume">
-        <div>
-          <p class="eyebrow">简历</p>
-          <h2>完整经历请查看 PDF 简历。</h2>
-          <p>网页会持续补充更适合公开展示的项目案例；简历保留更正式、完整的工作经历。</p>
-        </div>
-        <a class="primary-action" href="./resume/wutong-product-resume.pdf" download>下载简历</a>
-      </section>
-
-      <footer class="site-footer" id="contact">
-        <div>
-          <p class="eyebrow">联系</p>
-          <h2>如果你想了解我的产品经历或作品，可以从这里开始。</h2>
-        </div>
-        <div class="footer-links">
-          <a href="mailto:hello@wutong.world">hello@wutong.world</a>
-          <a href="./resume/wutong-product-resume.pdf" download>下载简历</a>
-        </div>
+      <footer class="site-footer">
+        <span>© 2026 WUTONG.WORLD</span>
+        <a href="./resume/wutong-product-resume.pdf" download data-i18n-en="DOWNLOAD RÉSUMÉ ↓">下载简历 ↓</a>
+        <a href="#top" data-i18n-en="BACK TO TOP ↑">返回顶部 ↑</a>
       </footer>
-    </main>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>

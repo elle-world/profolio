@@ -11,7 +11,7 @@ The website should not position me only as an AI product manager.
 It should position me as:
 
 ```text
-A product manager with design background, C-end product experience, visual taste, user empathy, and AI-assisted building ability.
+A product manager with a design background who turns complex systems into clear user experiences, with shipped Agent, payment, cross-device, and experience-governance work.
 ```
 
 ## V1 User Experience Requirements
@@ -41,14 +41,12 @@ The website should support future expansion:
 - multilingual content
 - blog or notes if needed later
 
-Recommended implementation direction:
+Implementation direction:
 
-- Next.js
-- TypeScript
-- Tailwind CSS
-- structured content data
-- reusable components
-- theme and language controls reserved in layout
+- V1: dependency-light static site for a fast, reliable launch
+- Later: React or Next.js with TypeScript when project pages and 3D interaction justify migration
+- structured bilingual content
+- reusable layout and theme tokens
 
 ### Layout Precision
 
@@ -89,22 +87,22 @@ The code should avoid hard-coded page copy scattered across components. Content 
 
 The hero section should include:
 
-- name: 吴桐 / Estelle Wu
+- name: 吴桐 / Elle Wu
 - broad product manager positioning
 - personal portrait
-- resume download
-- GitHub link
 - contact link
 
 The portrait should be a primary visual asset, but not the entire identity of the site.
 
-## Works Requirements
+## Future Works Requirements
 
-Initial works:
+No unfinished personal projects appear in the V1 homepage. Add them only after there is a usable artifact or a case study worth reviewing.
 
-- Personal AI Portfolio
-- AI Fund Assistant
-- AI Product Teardown Library
+Candidate future works:
+
+- Travel Outfit Assistant
+- AI Journey
+- Personal Portfolio Website
 
 Each work should eventually support:
 
@@ -124,7 +122,15 @@ The first public version is ready when:
 - the site opens successfully on the custom domain
 - mobile and desktop layouts are polished
 - resume download works
-- GitHub and contact links work
+- contact links work
 - the homepage clearly communicates broad product capability
-- AI-assisted work is visible without over-narrowing the job direction
+- AI capability is proven through shipped Agent work and hands-on building without narrowing the site to one job title
 
+## Future Spatial Interaction
+
+The 3D room is a later storytelling layer, not the V1 navigation system.
+
+- Each object must map to meaningful content, such as a suitcase for travel, a sketchbook for design, or a device for AI work.
+- Desktop can use a full interactive Three.js scene.
+- Mobile and reduced-motion users need a fast, readable alternative.
+- The 3D layer must never hide core resume and project content from recruiters.

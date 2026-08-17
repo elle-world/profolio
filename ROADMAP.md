@@ -12,13 +12,11 @@
 
 - Build homepage structure
 - Add personal introduction
-- Add resume download section
-- Add works section
+- Add resume download to the final contact section
 - Add contact and social links
 - Prepare responsive layout
 - Add personal portrait to the hero section
-- Reserve UI positions for theme switching and language switching
-- Structure copy so Chinese and English versions can be added cleanly
+- Implement light/dark mode and Chinese/English switching
 
 ## V0.3 - Design Foundation
 
@@ -28,34 +26,31 @@
 - Prepare motion-friendly component structure
 - Check mobile layout in key viewport widths
 
-## V0.4 - AI Fund Assistant
+## V0.4 - Travel Outfit Assistant
 
 - Write product brief
-- Define target user and problem
-- Design core user flow
-- Create first web prototype
-- Add screenshots and case summary to the website
+- Build the first usable web prototype
+- Turn destination and social inspiration into practical outfit briefs
+- Add the project story and live link to the portfolio
 
-## V0.5 - AI Product Teardown Library
+## V0.5 - AI Journey
 
-- Create teardown template
-- Analyze 3 to 5 AI products
-- Document UX patterns, failure cases, and improvement ideas
-- Publish teardown section on the website
+- Keep the AI learning and job-transition knowledge system updated
+- Publish selected reflections only when they support the portfolio narrative
+- Connect AI concepts to real product decisions and shipped work
 
-## V0.6 - AI Travel Planner
+## V0.6 - Project Detail Pages
 
-- Write product brief
-- Define user scenarios
-- Create a lightweight interactive prototype
-- Use travel as a product context rather than the main visual theme
+- Add full case studies for Abao AI transfers, transfer governance, and Tap-to-Pay
+- Add the Travel Outfit Assistant case study
+- Keep confidential business details out of public pages
 
-## V0.7 - Optional Experience Upgrade
+## V0.7 - Spatial Experience Upgrade
 
-- Implement dark mode if not shipped in MVP
-- Implement Chinese and English language switch if not shipped in MVP
 - Add subtle page transitions or section reveals
-- Add richer project detail pages
+- Prototype an interactive 3D room with Three.js and Blender
+- Map meaningful objects to travel, design, campus, and AI work
+- Provide a lightweight mobile fallback instead of forcing 3D on every device
 
 ## V1.0 - Public Launch
 
