@@ -188,13 +188,13 @@ h4 { margin-bottom: 10px; font-size: 16px; font-weight: 620; line-height: 1.3; }
   padding-bottom: clamp(110px, 13vw, 186px);
 }
 .perspective-label { padding-top: 8px; }
-.perspective-copy { position: relative; padding: 12px 42px 18px; }
+.perspective-copy { position: relative; padding: 12px 42px 42px; }
 .perspective-copy h2 { max-width: 1100px; margin: 0; font-size: clamp(25px, 2.3vw, 32px); font-weight: 410; line-height: 1.58; }
 .perspective-copy h2 span { display: block; white-space: nowrap; }
 .perspective-copy::before,
 .perspective-copy::after { position: absolute; color: var(--accent); font-family: Georgia, serif; font-size: 52px; font-weight: 400; line-height: 1; opacity: 0.52; }
 .perspective-copy::before { top: -4px; left: 0; content: "“"; }
-.perspective-copy::after { right: 0; bottom: -10px; content: "”"; }
+.perspective-copy::after { right: 2px; bottom: -22px; content: "”"; }
 
 .experience, .works, .beyond, .education { border-top: 1px solid var(--line); padding-top: clamp(80px, 10vw, 144px); padding-bottom: clamp(90px, 12vw, 170px); }
 .section-intro { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: clamp(24px, 5vw, 76px); margin-bottom: clamp(96px, 11vw, 156px); }
@@ -247,7 +247,7 @@ h4 { margin-bottom: 10px; font-size: 16px; font-weight: 620; line-height: 1.3; }
 .journey-visual li strong { font-size: 17px; font-weight: 570; }
 .journey-visual li small { grid-column: 2; margin-top: -18px; color: var(--soft); font-size: 11px; }
 
-.internship-block { display: grid; grid-template-columns: minmax(220px, 0.48fr) minmax(0, 1fr); gap: clamp(42px, 8vw, 130px); margin-top: clamp(90px, 11vw, 150px); }
+.internship-block { display: grid; grid-template-columns: minmax(220px, 0.48fr) minmax(0, 1fr); gap: clamp(42px, 8vw, 130px); margin-top: 0; border-top: 1px solid var(--line); padding-top: clamp(90px, 11vw, 150px); }
 .internship-heading h3 { font-size: clamp(27px, 3vw, 40px); }
 .role-list { border-top: 1px solid var(--line); }
 .role-list article { display: grid; grid-template-columns: minmax(250px, 0.7fr) 1fr; gap: 34px; border-bottom: 1px solid var(--line); padding: 28px 0; }
@@ -333,7 +333,7 @@ h4 { margin-bottom: 10px; font-size: 16px; font-weight: 620; line-height: 1.3; }
   .perspective .section-index, .education .section-index { margin-bottom: 26px; }
   .perspective-label { padding-top: 0; }
   .perspective-label, .perspective-copy { grid-column: 1; }
-  .perspective-copy { padding: 16px 28px 20px; }
+  .perspective-copy { padding: 16px 28px 38px; }
   .perspective-copy h2 { font-size: 24px; line-height: 1.55; }
   .perspective-copy h2 span { white-space: normal; }
   .section-intro { grid-template-columns: 1fr; gap: 22px; margin-bottom: 88px; }
@@ -372,6 +372,7 @@ h4 { margin-bottom: 10px; font-size: 16px; font-weight: 620; line-height: 1.3; }
   .perspective-copy { padding-right: 24px; padding-left: 24px; }
   .perspective-copy h2 { font-size: 22px; }
   .perspective-copy::before, .perspective-copy::after { font-size: 42px; }
+  .perspective-copy::after { right: 2px; bottom: -14px; }
   .case-meta { align-items: flex-start; gap: 16px; }
   .case-meta p { max-width: 210px; text-align: right; }
   .case-outcomes strong { font-size: 34px; }
