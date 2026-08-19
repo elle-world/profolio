@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="《我们看过的世界》—— 每周，由 AI 为两个人策划一场共同回忆展。可行走的互动网页 Demo。" />
+    <title>我们看过的世界 · AI 社交概念实验</title>
+    <style>
+      :root {
+        --grass: #a7c46d;
+        --grass-deep: #8fb35b;
+        --dirt: #cf9263;
+        --sky: #a5d4e6;
+        --ink: #2b2620;
+        --paper: #fdfbf4;
+        --accent: #e8845c;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { height: 100%; overflow: hidden; }
+      body {
+        font-family: Inter, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", system-ui, sans-serif;
+        background: var(--grass);
+        color: var(--ink);
+        -webkit-tap-highlight-color: transparent;
+      }
+      #scene { position: fixed; inset: 0; display: block; touch-action: none; }
+
+      /* ---------- 加载 ---------- */
+      #loading {
+        position: fixed; inset: 0; z-index: 50;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+        background: var(--grass);
+        transition: opacity 500ms ease;
+      }
+      #loading.hidden { opacity: 0; pointer-events: none; }
+      #loading .tree-dot {
+        width: 18px; height: 18px; border-radius: 50%;
+        background: #5e8f4e;
+        animation: breathe 1.4s ease-in-out infinite;
+      }
+      #loading p { font-size: 14px; letter-spacing: 0.06em; color: #4a5a38; }
+      @keyframes breathe { 50% { transform: scale(1.5); opacity: 0.55; } }
+
+      /* ---------- 降级 ---------- */
+      #fallback {
+        position: fixed; inset: 0; z-index: 60; display: none;
+        flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+        background: var(--paper); padding: 32px; text-align: center;
+      }
+      #fallback h1 { font-size: 22px; }
+      #fallback p { max-width: 420px; font-size: 14px; line-height: 1.9; color: #6b6455; }
+
+      /* ---------- HUD ---------- */
+      .hud { position: fixed; z-index: 20; pointer-events: none; }
+      #hud-top {
+        top: max(14px, env(safe-area-inset-top)); left: 50%; transform: translateX(-50%);
+        display: flex; flex-direction: column; align-items: center; gap: 6px;
+        width: min(92vw, 560px); text-align: center;
+      }
+      #hud-theme {
+        display: inline-block; border-radius: 999px; padding: 8px 18px;
+        background: rgba(253, 251, 244, 0.92);
+        box-shadow: 0 2px 10px rgba(43, 38, 32, 0.12);
+        font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
+      }
+      #hud-theme small { display: block; margin-top: 2px; font-size: 10px; font-weight: 500; color: #8a7f68; letter-spacing: 0.12em; }
+      #hud-progress {
+        border-radius: 999px; padding: 5px 14px;
+        background: rgba(43, 38, 32, 0.75); color: var(--paper);
+        font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      }
+      #hud-home {
+        position: fixed; z-index: 21; top: max(14px, env(safe-area-inset-top)); left: 14px;
+        border-radius: 999px; padding: 8px 14px;
+        background: rgba(253, 251, 244, 0.92); color: var(--ink);
+        font-size: 12px; font-weight: 700; text-decoration: none;
+        box-shadow: 0 2px 10px rgba(43, 38, 32, 0.12);
+      }
+      #cam-toggle {
+        position: fixed; z-index: 21; top: max(14px, env(safe-area-inset-top)); right: 14px;
+        border: 0; border-radius: 999px; padding: 8px 14px;
+        background: rgba(253, 251, 244, 0.92); color: var(--ink);
+        font: inherit; font-size: 12px; font-weight: 700; cursor: pointer;
+        box-shadow: 0 2px 10px rgba(43, 38, 32, 0.12);
+      }
+
+      /* ---------- 查看提示 ---------- */
+      #prompt {
+        position: fixed; z-index: 22; left: 50%; bottom: max(120px, calc(env(safe-area-inset-bottom) + 108px));
+        transform: translateX(-50%) translateY(12px);
+        display: flex; align-items: center; gap: 10px;
+        border: 0; border-radius: 999px; padding: 12px 22px;
+        background: var(--ink); color: var(--paper);
+        font: inherit; font-size: 14px; font-weight: 700;
+        box-shadow: 0 8px 24px rgba(43, 38, 32, 0.3);
+        cursor: pointer; opacity: 0; pointer-events: none;
+        transition: opacity 200ms ease, transform 200ms ease;
+      }
+      #prompt.visible { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+      #prompt .key {
+        display: inline-grid; place-items: center;
+        min-width: 22px; height: 22px; border-radius: 6px; padding: 0 6px;
+        background: rgba(253, 251, 244, 0.2); font-size: 11px;
+      }
+
+      /* ---------- 展品弹窗 ---------- */
+      #modal {
+        position: fixed; inset: 0; z-index: 40; display: none;
+        align-items: flex-end; justify-content: center;
+        background: rgba(43, 38, 32, 0.35);
+      }
+      #modal.open { display: flex; }
+      .modal-card {
+        width: min(94vw, 480px); max-height: 78vh; overflow: auto;
+        margin-bottom: max(18px, env(safe-area-inset-bottom));
+        border-radius: 22px; padding: 26px 26px 22px;
+        background: var(--paper);
+        box-shadow: 0 18px 60px rgba(43, 38, 32, 0.35);
+        animation: rise 260ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      @keyframes rise { from { transform: translateY(26px); opacity: 0; } }
+      .modal-card .source {
+        display: inline-block; border-radius: 999px; padding: 5px 12px; margin-bottom: 14px;
+        background: #efe6d2; color: #8a6a3f; font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+      }
+      .modal-card h2 { margin-bottom: 10px; font-size: 20px; line-height: 1.4; }
+      .modal-card .body { margin-bottom: 16px; font-size: 14px; line-height: 1.9; color: #5d5648; }
+      .modal-card .curator {
+        border-left: 3px solid var(--accent); padding: 4px 0 4px 14px;
+        font-size: 14px; line-height: 1.8; color: var(--ink);
+      }
+      .modal-card .curator::before { content: "AI 策展笔记"; display: block; margin-bottom: 4px; font-size: 10px; font-weight: 800; letter-spacing: 0.14em; color: var(--accent); }
+      .modal-close {
+        margin-top: 20px; width: 100%; min-height: 46px;
+        border: 0; border-radius: 999px; background: var(--ink); color: var(--paper);
+        font: inherit; font-size: 14px; font-weight: 700; cursor: pointer;
+      }
+
+      /* ---------- 虚拟摇杆 ---------- */
+      #joystick {
+        position: fixed; z-index: 25; left: 26px; bottom: max(26px, env(safe-area-inset-bottom));
+        width: 118px; height: 118px; border-radius: 50%;
+        background: rgba(253, 251, 244, 0.28);
+        border: 1.5px solid rgba(253, 251, 244, 0.55);
+        display: none; touch-action: none;
+      }
+      #joystick .nub {
+        position: absolute; left: 50%; top: 50%; width: 52px; height: 52px;
+        border-radius: 50%; background: rgba(253, 251, 244, 0.85);
+        transform: translate(-50%, -50%);
+        box-shadow: 0 3px 10px rgba(43, 38, 32, 0.2);
+      }
+      @media (pointer: coarse) { #joystick { display: block; } }
+
+      /* ---------- 回忆卡 ---------- */
+      #finale {
+        position: fixed; inset: 0; z-index: 45; display: none;
+        flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+        background: rgba(43, 38, 32, 0.45); padding: 20px;
+      }
+      #finale.open { display: flex; }
+      #memory-card {
+        width: min(88vw, 380px); border-radius: 20px;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+        animation: rise 400ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      #finale .actions { display: flex; gap: 12px; }
+      #finale button, #finale a {
+        border: 0; border-radius: 999px; padding: 13px 26px;
+        font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none;
+      }
+      #download-card { background: var(--paper); color: var(--ink); }
+      #close-finale { background: transparent; color: var(--paper); border: 1.5px solid rgba(253, 251, 244, 0.7) !important; }
+
+      /* ---------- 桌面端操作提示 ---------- */
+      #hint-keys {
+        position: fixed; z-index: 20; right: 18px; bottom: max(16px, env(safe-area-inset-bottom));
+        border-radius: 12px; padding: 9px 14px;
+        background: rgba(253, 251, 244, 0.85); color: #6b6455;
+        font-size: 11px; line-height: 1.7; pointer-events: none;
+      }
+      @media (pointer: coarse) { #hint-keys { display: none; } }
+    </style>
+  </head>
+  <body>
+    <canvas id="scene"></canvas>
+
+    <div id="loading">
+      <span class="tree-dot"></span>
+      <p>正在布置本周的展览…</p>
+    </div>
+
+    <div id="fallback">
+      <h1>我们看过的世界</h1>
+      <p>你的浏览器暂时无法加载 3D 场景（需要 WebGL 支持）。本期主题为「我们想暂时逃离城市的一周」，包含共看、共游、对话、照片四个展区。请更换现代浏览器后再来参观。</p>
+    </div>
+
+    <a id="hud-home" href="../../#works">← 返回作品集</a>
+    <button id="cam-toggle" type="button">切换：第一视角</button>
+
+    <div class="hud" id="hud-top">
+      <span id="hud-theme">我们看过的世界<small>我们想暂时逃离城市的一周 · 8.11 — 8.17</small></span>
+      <span id="hud-progress">已参观 0 / 4</span>
+    </div>
+
+    <button id="prompt" type="button"><span class="key">E</span><span id="prompt-text">查看展品</span></button>
+
+    <div id="modal" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <span class="source" id="modal-source"></span>
+        <h2 id="modal-title"></h2>
+        <p class="body" id="modal-body"></p>
+        <p class="curator" id="modal-curator"></p>
+        <button class="modal-close" id="modal-close" type="button">继续参观</button>
+      </div>
+    </div>
+
+    <div id="joystick"><span class="nub"></span></div>
+
+    <div id="finale">
+      <canvas id="memory-card" width="1080" height="1440"></canvas>
+      <div class="actions">
+        <button id="download-card" type="button">下载本周共同回忆 ↓</button>
+        <button id="close-finale" type="button">再看看小岛</button>
+      </div>
+    </div>
+
+    <div id="hint-keys">跟着挥手的伙伴走，逐个参观展区<br />WASD / 方向键 / 点击地面移动 · 按 E 查看 · 按 V 切换视角</div>
+
+    <script type="importmap">
+      { "imports": { "three": "./lib/three.module.js" } }
+    </script>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

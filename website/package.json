@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "mkdir -p dist && cp index.html styles.css script.js favicon.svg CNAME .nojekyll dist/ && cp -R images resume dist/",
-    "dev": "python3 -m http.server 3000"
+    "build": "mkdir -p dist && cp index.html styles.css script.js favicon.svg CNAME .nojekyll dist/ && cp -R images resume works dist/",
+    "dev": "python3 scripts/dev.py"
   }
 }
