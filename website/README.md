@@ -6,6 +6,7 @@ This folder contains the personal portfolio website for `wutong.world`.
 
 - Hero
 - Ant Group experience
+- Beyond work
 - Selected works
 - Education
 - Contact
