@@ -3,6 +3,7 @@ const themeButton = document.querySelector("[data-theme-toggle]");
 const languageButton = document.querySelector("[data-language-toggle]");
 const translatedElements = [...document.querySelectorAll("[data-i18n-en]")];
 const translatedImages = [...document.querySelectorAll("[data-alt-en]")];
+const themeImages = [...document.querySelectorAll("[data-light-src][data-dark-src]")];
 const translatedAriaElements = [...document.querySelectorAll("[data-aria-en]")];
 const sectionLinks = [...document.querySelectorAll("[data-section-link]")];
 const observedSections = [...document.querySelectorAll("[data-observe-section]")];
@@ -24,6 +25,9 @@ translatedAriaElements.forEach((element) => {
 
 function renderTheme() {
   shell.dataset.theme = theme;
+  themeImages.forEach((image) => {
+    image.src = theme === "dark" ? image.dataset.darkSrc : image.dataset.lightSrc;
+  });
   const isEnglish = language === "en";
   const themeLabel = theme === "light"
     ? (isEnglish ? "Switch to dark mode" : "切换到暗黑模式")
